@@ -1,5 +1,5 @@
 const express = require("express");
-
+require("dotenv").config()
 const connect = require("./src/configs/db");
 
 const userController = require("./src/controllers/user.controller");
@@ -44,7 +44,7 @@ app.get(
   }
 );
 
-app.listen(2345, async () => {
+app.listen(process.env.PORT ||2345, async () => {
   try {
     await connect();
   } catch (err) {
